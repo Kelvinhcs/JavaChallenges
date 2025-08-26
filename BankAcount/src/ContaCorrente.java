@@ -4,8 +4,8 @@
 * limiteChequeEspecial (opcional): valor referente ao limite disponível para o cheque especial do cliente
 * */
 public class ContaCorrente extends ContaBancaria{
-    private final double limiteChequeEspecial;
-    private final TabelaTarifas tabelaTarifas;
+    private double limiteChequeEspecial;
+    private TabelaTarifas tabelaTarifas;
 
     /*Implementação do Builder da classe mãe:
     * feito para adicionar o Builder original da classe herdada,
@@ -24,17 +24,11 @@ public class ContaCorrente extends ContaBancaria{
         public Builder(String titular, double saldo, TabelaTarifas tabelaTarifas){
             super(titular, saldo);
             this.tabelaTarifas = tabelaTarifas;
-        }
-        public Builder limiteChequeEspecial(double limiteChequeEspecial){
+        }public Builder limiteChequeEspecial(double limiteChequeEspecial){
             this.limiteChequeEspecial = limiteChequeEspecial;
             return this;
-        } public Builder tabelaTarifas(TabelaTarifas tabelaTarifas){
+        }public Builder tabelaTarifas(TabelaTarifas tabelaTarifas){
             this.tabelaTarifas = tabelaTarifas;
-            return this;
-        }
-
-        @Override
-        protected Builder self() {
             return this;
         }
 
@@ -45,6 +39,21 @@ public class ContaCorrente extends ContaBancaria{
         public ContaCorrente build(){
             return new ContaCorrente(this);
         }
+        @Override
+        protected Builder self() {
+            return this;
+        }
+    }
+
+    //Getters e Setters
+    public double getLimiteChequeEspecial() {
+        return limiteChequeEspecial;
+    }public void setLimiteChequeEspecial(double limiteChequeEspecial) {
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }public TabelaTarifas getTabelaTarifas() {
+        return tabelaTarifas;
+    }public void setTabelaTarifas(TabelaTarifas tabelaTarifas) {
+        this.tabelaTarifas = tabelaTarifas;
     }
 
     //Override clássico no toString para mostrar de maneira melhor as funcionalidades
@@ -53,6 +62,6 @@ public class ContaCorrente extends ContaBancaria{
         return  "Titular - " + titular + "\n" +
                 "Saldo - R$" + saldo + "\n" +
                 "Limite Cheque Especial - " + limiteChequeEspecial + "\n" +
-                "Tabela de Tarifas - " + tabelaTarifas;
+                "Tabela de Tarifas -> " + tabelaTarifas;
     }
 }

@@ -1,8 +1,8 @@
 public enum TabelaTarifas {
-    S("Tarifa Premium", 49.99),
-    A("Tarifa Avançada", 24.99),
-    B("Tarifa Intermediária", 29.99),
-    C("Tarifa Básica", 19.99);
+    S("S - Tarifa Premium", 49.99),
+    A("A - Tarifa Avançada", 24.99),
+    B("B - Tarifa Intermediária", 29.99),
+    C("C - Tarifa Básica", 19.99);
 
     private final String descricao;
     private final double valor;
