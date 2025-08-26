@@ -1,4 +1,4 @@
 public interface Conta {
-    void mostrarSaldo();
-    void depositar(double valor);
+    double consultarSaldo();
+    void depositar(double valorDeposito);
 }
