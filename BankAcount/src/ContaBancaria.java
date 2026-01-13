@@ -34,6 +34,9 @@ public abstract class ContaBancaria implements Conta{
     }
     @Override
     public String depositar(double valorDeposito) {
+        if (valorDeposito <= 0) {
+            throw new IllegalArgumentException("Valor de deposito invalido, precisa ser positivo");
+        }
         this.saldo += valorDeposito;
         return "O valor de R$"+ valorDeposito + " foi depositado em sua conta";
     }
